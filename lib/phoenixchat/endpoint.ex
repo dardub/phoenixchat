@@ -38,5 +38,7 @@ defmodule Phoenixchat.Endpoint do
     key: "_phoenixchat_key",
     signing_salt: "Kz/NEntB"
 
+  plug Corsica, allow_headers: ~w(Accept Content-Type Authorization)
+
   plug Phoenixchat.Router
 end

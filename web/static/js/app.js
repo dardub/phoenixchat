@@ -11,7 +11,7 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+import 'phoenix_html';
 
 // Import local files
 //
@@ -19,3 +19,23 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Home from './pages/home';
+import Settings from './pages/settings';
+import Signup from './pages/signup';
+
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+
+const App = props => (<div>{props.children}</div>);
+
+ReactDOM.render(
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="settings" component={Settings} />
+      <Route path="signup" component={Signup} />
+    </Route>
+  </Router>, document.getElementById('baseApp')
+);
